@@ -23,7 +23,7 @@ Answer: https://www.kaggle.com/code/trevorjhou/notebook126e22d6c5?scriptVersionI
 
 
 3. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small?
-   Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and leaderboard scores.
+   Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and     leaderboard scores.
 
 Answer: 
 Two modeling approaches were explored in this project: Random Forest (bagging) and XGBoost (boosting).
@@ -39,10 +39,9 @@ The performance of the models was evaluated using macro F1 score due to class im
 | XGBoost      | Boosting | 0.969       | 0.95939           |
 
 Both models were trained on the dataset after preprocessing, including one-hot encoding of categorical variables. Default model settings were used, with minimal tuning applied.
-The results suggest that both bagging and boosting methods are effective for this dataset. The lack of significant improvement from boosting indicates that the dataset may already be well-structured, 
-allowing Random Forest to capture most of the underlying patterns.
+The results suggest that both bagging and boosting methods are effective for this dataset. The lack of significant improvement from boosting indicates that the dataset may already be well-structured, allowing Random Forest to capture most of the underlying patterns.
 
-Overall, model improvements were small, and no substantial performance gain was observed between the two approaches.
+Overall, model improvements were small, and no substantial performance gain was observed between the two approaches. The results suggest that the dataset is relatively easy to model, which explains the small difference between the two approaches.
 
 
 4. How did boosting versus bagging compare for your work? 
