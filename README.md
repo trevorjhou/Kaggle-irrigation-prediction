@@ -56,4 +56,44 @@ This suggests that the performance difference between the two approaches was min
 While boosting is generally expected to outperform bagging by sequentially correcting errors, in this case the dataset appears to be relatively well-structured, 
 allowing Random Forest to already capture most of the important patterns.
 
+
+
+## HW3 - Additional Boosting Models
+
+1. Links to your gradient boosting notebook(s).
+https://www.kaggle.com/code/trevorjhou/hw3-additional-boosting-models?scriptVersionId=313895408
+
+2. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small? Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and leaderboard scores.
+How did the different models compare for your work?
+
+Answer: 
+Three boosting models were explored in this project: XGBoost, LightGBM, and CatBoost. Each model was trained using one-hot encoded features, and different hyperparameter settings were tested to evaluate their impact on performance.
+
+
+The performance of the models was evaluated using macro F1 score due to class imbalance in the target variable. The following table summarizes the results:
+
+| Model | Hyperparameters | CV F1 Score | Leaderboard Score |
+|------|-----------------|------------|------------------|
+| XGBoost | max_depth=3 | 0.9671 | |
+| XGBoost | max_depth=6 | 0.9689 | 0.95939 |
+| XGBoost | max_depth=9 | 0.9685 | |
+| LightGBM | default | 0.9641 | |
+| LightGBM | num_leaves=63 | 0.9653 | |
+| CatBoost | default | 0.9689 | 0.95895 |
+| CatBoost | depth=6 | 0.9689 | |
+
+XGBoost and CatBoost achieved the highest cross-validation F1 scores, while LightGBM performed slightly worse. Increasing model complexity, such as using deeper trees, provided only minor improvements.
+
+Overall, model improvements from hyperparameter tuning were small. While some configurations slightly improved performance, the differences were minimal, suggesting that the dataset is relatively easy to model and that baseline boosting models are already effective.
+
+
+3. How did the different models compare for your work?
+Answer:
+The different boosting models performed similarly overall. XGBoost achieved the best leaderboard score of 0.95939, while CatBoost produced a slightly lower score of 0.95895. LightGBM performed slightly worse than both models in cross-validation.
+
+Although XGBoost and CatBoost had nearly identical F1 scores during validation, the leaderboard results suggest that XGBoost generalizes slightly better. However, the overall performance differences between models were small.
+
+This indicates that all three boosting approaches are effective for this dataset, and that model choice has only a limited impact on performance.
+
+
 Overall, boosting did not provide a significant improvement over bagging for this task, and both approaches were equally effective.
