@@ -88,7 +88,10 @@ Overall, model improvements from hyperparameter tuning were small. While some co
 
 
 3. How did the different models compare for your work?
+
+
 Answer:
+
 The different boosting models performed similarly overall. XGBoost achieved the best leaderboard score of 0.95939, while CatBoost produced a slightly lower score of 0.95895. LightGBM performed slightly worse than both models in cross-validation.
 
 Although XGBoost and CatBoost had nearly identical F1 scores during validation, the leaderboard results suggest that XGBoost generalizes slightly better. However, the overall performance differences between models were small.
