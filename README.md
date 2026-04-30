@@ -100,3 +100,77 @@ This indicates that all three boosting approaches are effective for this dataset
 
 
 Overall, boosting did not provide a significant improvement over bagging for this task, and both approaches were equally effective.
+
+
+
+## HW4: Feature Engineering, Selection, and Ensembling
+
+### Notebook
+- Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/hw3-additional-boosting-models
+
+---
+
+### Models Used
+I experimented with several models that differ in meaningful ways:
+
+- Random Forest (bagging)
+- XGBoost (boosting)
+- LightGBM (boosting)
+- CatBoost (boosting)
+
+These models represent different learning approaches and provide diversity for later ensembling.
+
+---
+
+### Feature Engineering
+To improve feature representation, I created several interaction features:
+
+- `moisture_x_temp` (Soil Moisture × Temperature)
+- `rain_x_humidity` (Rainfall × Humidity)
+- `sun_per_temp` (Sunlight / Temperature)
+- `water_per_area` (Previous Irrigation / Field Area)
+
+These features were designed to capture relationships between environmental variables that may influence irrigation needs.
+
+---
+
+### Feature Importance
+Using tree-based models (XGBoost), I examined feature importance:
+
+- Key original features include:
+  - Crop growth stage
+  - Soil moisture
+  - Temperature
+- Some engineered features also contributed, though their impact was smaller.
+
+This suggests that the dataset is already informative, but interaction features can add minor improvements.
+
+---
+
+### Ensemble Method
+I combined XGBoost, CatBoost, and LightGBM using probability averaging:
+
+- Each model outputs class probabilities
+- Final prediction is based on the average probabilities
+
+The ensemble slightly improved macro F1 score compared to individual models.
+
+---
+
+### Results
+- XGBoost (with engineered features): ~0.9690 (macro F1)
+- Ensemble model: ~0.9691 (macro F1)
+
+The improvement is small but consistent.
+
+---
+
+### Reflection
+The improvements from feature engineering and ensembling were modest, indicating that the dataset is already well-structured and strong boosting models perform well.
+
+However, this process helped refine my workflow:
+- exploring feature interactions
+- comparing multiple model types
+- combining models to improve robustness
+
+Overall, the assignment demonstrates how feature engineering and ensembling can be used to improve model performance and understanding.
