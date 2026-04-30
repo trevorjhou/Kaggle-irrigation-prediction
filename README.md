@@ -106,7 +106,7 @@ Overall, boosting did not provide a significant improvement over bagging for thi
 ## HW4: Feature Engineering, Selection, and Ensembling
 
 ### Notebook
-- Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/hw3-additional-boosting-models
+- Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/ml-homework/notebook?scriptVersionId=315636661
 
 ---
 
