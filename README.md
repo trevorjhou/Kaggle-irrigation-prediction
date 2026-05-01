@@ -24,7 +24,7 @@ Overall, these resources helped explain why both bagging and boosting methods ac
 
 2. Links to your EDA notebook and bagging and boosting notebook(s).
 
-Answer: https://www.kaggle.com/code/trevorjhou/notebook126e22d6c5?scriptVersionId=311967971
+Answer: https://www.kaggle.com/code/trevorjhou/ml-homework
 
 3. What insights did you gain? Is there a feature you think is especially important? Any potential issues? Did you try anything new that you learned from Kaggle or other sources? Consider posting a public EDA notebook on Kaggle.
 
@@ -89,7 +89,7 @@ Overall, the goal would be to refine the model through better features and tunin
 ## HW3 - Additional Boosting Models
 
 1. Links to your gradient boosting notebook(s).
-https://www.kaggle.com/code/trevorjhou/hw3-additional-boosting-models?scriptVersionId=313895408
+https://www.kaggle.com/code/trevorjhou/ml-homework
 
 2. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small? Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and leaderboard scores.
 How did the different models compare for your work?
@@ -132,7 +132,7 @@ Overall, the differences between boosting models were small, indicating that all
 ## HW4: Feature Engineering, Selection, and Ensembling
 
 ### Notebook
-- Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/ml-homework/notebook?scriptVersionId=315636661
+- Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/ml-homework
 
 ### Models Used
 I experimented with several models that differ in meaningful ways:
