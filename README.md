@@ -1,35 +1,51 @@
 # Kaggle Homework - Trevor Jhou - trevorjhou
 
+## HW2 
+
 1. URLs for the resources you upvoted on the competition site.  Discuss why you chose each--how will it help you improve your approach?
 
 Answer:
 Some useful Kaggle resources include:
 
 - https://www.kaggle.com/competitions/playground-series-s6e4/discussion/687460  
+  This discussion helped me understand the target structure and overall patterns in the dataset.
+
 - https://www.kaggle.com/competitions/playground-series-s6e4/discussion/687104  
+  This resource suggested strong baseline modeling approaches and common strategies used by others.
+
 - https://www.kaggle.com/code/zaouiyassine/s6e4-baseline-submissions  
+  This notebook showed a simple pipeline that I could use as a starting point and compare my results against.
 
-These resources provided valuable insights into the dataset and modeling strategies. In particular, they highlighted that the dataset may contain strong underlying patterns, 
-which helps explain why tree-based models perform very well.
+These resources helped guide my modeling decisions and provided context for why relatively simple tree-based models performed well in this competition.
 
-They also emphasized the importance of starting with a solid baseline before applying more advanced models. This guided the approach of using Random Forest and XGBoost for comparison.
+They also reinforced the importance of starting with a solid baseline before applying more advanced models. This guided my approach of using Random Forest and XGBoost for comparison.
 
 Overall, these resources helped explain why both bagging and boosting methods achieved very similar performance in this project.
-
 
 2. Links to your EDA notebook and bagging and boosting notebook(s).
 
 Answer: https://www.kaggle.com/code/trevorjhou/notebook126e22d6c5?scriptVersionId=311967971
 
+3. What insights did you gain? Is there a feature you think is especially important? Any potential issues? Did you try anything new that you learned from Kaggle or other sources? Consider posting a public EDA notebook on Kaggle.
 
-3. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small?
+Answer: 
+From the EDA, the dataset appears to be relatively clean and well-structured. There are no missing values, and the features include a mix of numerical and categorical variables.
+
+One important observation is that the target variable `Irrigation_Need` is imbalanced, with the "Low" class appearing much more frequently than the "High" class. This influenced the decision to use macro F1 score as the evaluation metric instead of accuracy.
+
+Several features, such as soil properties, rainfall, and temperature, are likely to be important predictors, as they are directly related to irrigation needs. Although a detailed feature importance analysis was not performed, these variables are intuitively relevant and are effectively handled by tree-based models.
+
+A potential issue with the dataset is that it appears to be relatively simple or well-structured, which may limit the performance differences between models. This was observed in later modeling steps, where different models produced very similar results.
+
+From Kaggle discussions, I learned that establishing a strong baseline model is important before applying more complex techniques. This guided the approach of starting with Random Forest and XGBoost, which already performed very well on this dataset.
+
+4. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small?
    Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and     leaderboard scores.
 
 Answer: 
 Two modeling approaches were explored in this project: Random Forest (bagging) and XGBoost (boosting).
 
-For the bagging approach, a Random Forest model was used, while XGBoost was used for the boosting approach. Both models were trained on the dataset after preprocessing, 
-including one-hot encoding of categorical variables.
+Both models were trained on the dataset after preprocessing, including one-hot encoding of categorical variables. Default model settings were used, with minimal tuning applied.
 
 The performance of the models was evaluated using macro F1 score due to class imbalance in the target variable.
 
@@ -38,13 +54,12 @@ The performance of the models was evaluated using macro F1 score due to class im
 | RandomForest | Bagging  | 0.966       | 0.95939           |
 | XGBoost      | Boosting | 0.969       | 0.95939           |
 
-Both models were trained on the dataset after preprocessing, including one-hot encoding of categorical variables. Default model settings were used, with minimal tuning applied.
-The results suggest that both bagging and boosting methods are effective for this dataset. The lack of significant improvement from boosting indicates that the dataset may already be well-structured, allowing Random Forest to capture most of the underlying patterns.
+XGBoost achieved a slightly higher F1 score during cross-validation, but both models obtained the same leaderboard score. This suggests that both bagging and boosting methods are effective for this dataset.
 
-Overall, model improvements were small, and no substantial performance gain was observed between the two approaches. The results suggest that the dataset is relatively easy to model, which explains the small difference between the two approaches.
+Overall, model improvements were small, indicating that the dataset is relatively easy to model and that additional complexity does not significantly improve performance.
 
 
-4. How did boosting versus bagging compare for your work? 
+5. How did boosting versus bagging compare for your work? 
 
 Answer:
 
@@ -56,7 +71,20 @@ This suggests that the performance difference between the two approaches was min
 While boosting is generally expected to outperform bagging by sequentially correcting errors, in this case the dataset appears to be relatively well-structured, 
 allowing Random Forest to already capture most of the important patterns.
 
+6. What is your "phase 2" plan to improve your model performance? Note that although the leaderboard is fun to watch, you are not graded on it (and a shake up often occurs at the end!)
 
+Answer:
+To further improve model performance, I would focus on feature engineering and more advanced model tuning.
+
+First, I would explore creating new features based on domain knowledge, such as combining soil properties with environmental factors (e.g., rainfall and temperature). These interaction features may help the model better capture relationships in the data.
+
+Second, I would perform more systematic hyperparameter tuning for the boosting models, such as adjusting learning rate, tree depth, and number of estimators. Although tuning showed only small improvements in this assignment, a more thorough search could still yield gains.
+
+In addition, I would consider using ensemble methods, such as combining predictions from multiple models (e.g., XGBoost and CatBoost), to improve generalization performance.
+
+Finally, I would analyze feature importance and potentially remove less informative features to reduce noise and improve model efficiency.
+
+Overall, the goal would be to refine the model through better features and tuning, rather than relying solely on more complex algorithms.
 
 ## HW3 - Additional Boosting Models
 
@@ -98,17 +126,13 @@ Although XGBoost and CatBoost had nearly identical F1 scores during validation, 
 
 This indicates that all three boosting approaches are effective for this dataset, and that model choice has only a limited impact on performance.
 
-
-Overall, boosting did not provide a significant improvement over bagging for this task, and both approaches were equally effective.
-
+Overall, the differences between boosting models were small, indicating that all approaches were similarly effective for this dataset.
 
 
 ## HW4: Feature Engineering, Selection, and Ensembling
 
 ### Notebook
 - Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/ml-homework/notebook?scriptVersionId=315636661
-
----
 
 ### Models Used
 I experimented with several models that differ in meaningful ways:
@@ -120,8 +144,6 @@ I experimented with several models that differ in meaningful ways:
 
 These models represent different learning approaches and provide diversity for later ensembling.
 
----
-
 ### Feature Engineering
 To improve feature representation, I created several interaction features:
 
@@ -131,8 +153,6 @@ To improve feature representation, I created several interaction features:
 - `water_per_area` (Previous Irrigation / Field Area)
 
 These features were designed to capture relationships between environmental variables that may influence irrigation needs.
-
----
 
 ### Feature Importance
 Using tree-based models (XGBoost), I examined feature importance:
@@ -145,8 +165,6 @@ Using tree-based models (XGBoost), I examined feature importance:
 
 This suggests that the dataset is already informative, but interaction features can add minor improvements.
 
----
-
 ### Ensemble Method
 I combined XGBoost, CatBoost, and LightGBM using probability averaging:
 
@@ -155,15 +173,11 @@ I combined XGBoost, CatBoost, and LightGBM using probability averaging:
 
 The ensemble slightly improved macro F1 score compared to individual models.
 
----
-
 ### Results
 - XGBoost (with engineered features): ~0.9690 (macro F1)
 - Ensemble model: ~0.9691 (macro F1)
 
 The improvement is small but consistent.
-
----
 
 ### Reflection
 The improvements from feature engineering and ensembling were modest, indicating that the dataset is already well-structured and strong boosting models perform well.
