@@ -101,28 +101,28 @@ How did the different models compare for your work?
 Answer: 
 Two boosting algorithms were explored in this project: LightGBM and CatBoost, each with multiple hyperparameter settings. All models were trained on one-hot encoded features, and performance was evaluated using 5-fold cross-validated balanced accuracy, which was chosen to account for class imbalance.
 
-The following table summarizes the results:
+The following table summarizes the best results for each models:
 
-| Model    | Hyperparameters      | CV Balanced Accuracy | Leaderboard Score |
-| -------- | -------------------- | -------------------: | ----------------: |
-| LightGBM | Set 1 - Baseline     |               0.9695 |         |
-| LightGBM | Set 2 - More Complex |               0.9683 |          |
-| LightGBM | Set 3 - Simpler      |               0.9699 |        0.96791 |
-| CatBoost | Set 1 - Baseline     |               0.9660 |         [fill in] |
-| CatBoost | Set 2 - Deeper Trees |               0.9670 |         [fill in] |
-
+| Model    | Hyperparameters         | CV Balanced Accuracy | Public Leaderboard Score | Private Leaderboard Score |
+| -------- | ----------------------- | -------------------: | -----------------------: | ------------------------: |
+| LightGBM | Set 3 - Simpler         |               0.9699 |                  0.96791 |                   0.97022 |
+| CatBoost | Set 3 - Faster Learning |               0.9691 |                  0.96579 |                   0.96861 |
 
 For LightGBM, the simpler configuration produced the best result, with a CV balanced accuracy of 0.9699, slightly outperforming both the baseline (0.9695) and the more complex version (0.9683). This suggests that increasing model complexity did not improve performance and may have slightly reduced generalization.
 
-For CatBoost, the deeper-tree configuration performed slightly better than the baseline, improving CV balanced accuracy from 0.9660 to 0.9670. However, the gain was relatively small.
+For CatBoost, the faster-learning configuration produced the best result, with a CV balanced accuracy of 0.9691. Compared with the baseline (0.9669) and the deeper-tree setting (0.9670), the improvement was still relatively small.
 
 Overall, LightGBM performed better than CatBoost on this dataset. The improvements from hyperparameter tuning were modest rather than dramatic, suggesting that the dataset is already fairly structured and can be modeled effectively without extreme tuning.
 
-3.How did the different models compare for your work?
+3. How did the different models compare for your work?
+
 Answer:
-The two boosting models performed similarly overall, but LightGBM achieved the best validation result. Its best configuration reached a CV balanced accuracy of 0.9699, while the best CatBoost configuration reached 0.9670.
+
+The two boosting models performed similarly overall, but LightGBM achieved the best validation result. Its best configuration reached a CV balanced accuracy of 0.9699, while the best CatBoost configuration reached 0.9691.
 
 This indicates that LightGBM captured the patterns in the dataset slightly better, although the overall difference between the models was still small. Both boosting approaches were effective, and model choice had some impact on performance, but not a very large one.
+
+The Kaggle leaderboard results showed the same pattern. LightGBM achieved a public score of 0.96791 and a private score of 0.97022, while CatBoost achieved a public score of 0.96579 and a private score of 0.96861. This suggests that LightGBM had a small but consistent advantage in both validation and competition performance.
 
 Overall, the differences between the boosting models were limited, with LightGBM showing a small but consistent advantage.
 
