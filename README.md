@@ -105,9 +105,9 @@ The following table summarizes the results:
 
 | Model    | Hyperparameters      | CV Balanced Accuracy | Leaderboard Score |
 | -------- | -------------------- | -------------------: | ----------------: |
-| LightGBM | Set 1 - Baseline     |               0.9695 |         [fill in] |
-| LightGBM | Set 2 - More Complex |               0.9683 |         [fill in] |
-| LightGBM | Set 3 - Simpler      |               0.9699 |         [fill in] |
+| LightGBM | Set 1 - Baseline     |               0.9695 |         |
+| LightGBM | Set 2 - More Complex |               0.9683 |          |
+| LightGBM | Set 3 - Simpler      |               0.9699 |        0.96791 |
 | CatBoost | Set 1 - Baseline     |               0.9660 |         [fill in] |
 | CatBoost | Set 2 - Deeper Trees |               0.9670 |         [fill in] |
 
