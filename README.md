@@ -183,8 +183,9 @@ This indicates that combining multiple boosting models can produce strong perfor
 ### Results
 - XGBoost (with engineered features): about 0.9690 (macro F1)
 - Ensemble model: about 0.9689 (macro F1)
+- Ensemble Kaggle leaderboard score: 0.96026 (public), 0.96223 (private)
 
-Both approaches performed very well, but the ensemble did not meaningfully outperform the single XGBoost model. This suggests that ensembling provided limited additional benefit on this dataset.
+Both approaches performed very well in validation, but the ensemble did not meaningfully outperform the single XGBoost model. The Kaggle leaderboard scores also suggest that the gains from ensembling were limited in practice.
 
 ### Reflection
 Overall, the improvements from feature engineering and ensembling were modest rather than dramatic. This suggests that the dataset is already fairly well-structured and that strong boosting models can perform well even without extensive additional feature construction.
