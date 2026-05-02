@@ -2,7 +2,7 @@
 
 ## Competition: Predicting Irrigation Need 
 
-## HW2 
+## HW2-Baseline Models
 
 1. URLs for the resources you upvoted on the competition site.  Discuss why you chose each--how will it help you improve your approach?
 
