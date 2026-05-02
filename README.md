@@ -7,6 +7,7 @@
 1. URLs for the resources you upvoted on the competition site.  Discuss why you chose each--how will it help you improve your approach?
 
 Answer:
+
 Some useful Kaggle resources include:
 
 - https://www.kaggle.com/competitions/playground-series-s6e4/discussion/687460  
@@ -27,8 +28,7 @@ Overall, these resources helped explain why both bagging and boosting methods ac
 2. Links to your EDA notebook and bagging and boosting notebook(s).
 
 Answer: 
-https://www.kaggle.com/code/trevorjhou/ml-homework
-
+https://www.kaggle.com/code/trevorjhou/ml-homework2
 
 3. What insights did you gain? Is there a feature you think is especially important? Any potential issues? Did you try anything new that you learned from Kaggle or other sources? Consider posting a public EDA notebook on Kaggle.
 
@@ -138,56 +138,55 @@ Overall, the differences between the boosting models were limited, with LightGBM
 - Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/ml-homework
 
 ### Models Used
-I experimented with several models that differ in meaningful ways:
+I experimented with several boosting models that differ in meaningful ways:
 
-- Random Forest (bagging)
-- XGBoost (boosting)
-- LightGBM (boosting)
-- CatBoost (boosting)
+- XGBoost
+- LightGBM
+- CatBoost
 
-These models represent different learning approaches and provide diversity for later ensembling.
+These models use different boosting strategies and provide useful diversity for comparing individual performance and for building an ensemble model.
 
 ### Feature Engineering
-To improve feature representation, I created several interaction features:
+I created several interaction features, including:
+- moisture_x_temp
+- rain_x_humidity
+- sun_per_temp
+- water_per_area
+- 
+These features were designed to capture relationships between environmental factors that may influence irrigation needs.
 
-- `moisture_x_temp` (Soil Moisture × Temperature)
-- `rain_x_humidity` (Rainfall × Humidity)
-- `sun_per_temp` (Sunlight / Temperature)
-- `water_per_area` (Previous Irrigation / Field Area)
-
-These features were designed to capture relationships between environmental variables that may influence irrigation needs.
+Using XGBoost, the model with engineered features achieved a macro F1 score of about 0.9690, which suggests that the added interaction terms provided a small improvement in predictive performance.
 
 ### Feature Importance
-Using tree-based models (XGBoost), I examined feature importance:
+The feature importance results show that the most influential predictors were still the original variables, especially crop growth stage, soil moisture, temperature, wind speed, and rainfall. The engineered interaction features did not appear among the top-ranked variables, which suggests that their contribution was relatively limited compared to the strongest original features. However, the slight improvement in model performance suggests that they may still have provided some additional useful information overall.
 
-- Key original features include:
-  - Crop growth stage
-  - Soil moisture
-  - Temperature
-- Some engineered features also contributed, though their impact was smaller.
+| Rank | Feature                      | Importance |
+| ---- | ---------------------------- | ---------: |
+| 1    | Crop_Growth_Stage_Vegetative |   0.269943 |
+| 2    | Crop_Growth_Stage_Flowering  |   0.202744 |
+| 3    | Mulching_Used_No             |   0.115180 |
+| 4    | Crop_Growth_Stage_Harvest    |   0.110424 |
+| 5    | Soil_Moisture                |   0.083196 |
+| 6    | Crop_Growth_Stage_Sowing     |   0.080900 |
+| 7    | Temperature_C                |   0.049739 |
+| 8    | Wind_Speed_kmh               |   0.043014 |
+| 9    | Rainfall_mm                  |   0.015204 |
+| 10   | Water_Source_Reservoir       |   0.001311 |
 
-This suggests that the dataset is already informative, but interaction features can add minor improvements.
+
 
 ### Ensemble Method
-I combined XGBoost, CatBoost, and LightGBM using probability averaging:
+I combined XGBoost, CatBoost, and LightGBM using probability averaging. The ensemble achieved a macro F1 score of about 0.9689.
 
-- Each model outputs class probabilities
-- Final prediction is based on the average probabilities
-
-The ensemble slightly improved macro F1 score compared to individual models.
+This indicates that combining multiple boosting models can produce strong performance, although the improvement over the best individual model was relatively small.
 
 ### Results
-- XGBoost (with engineered features): ~0.9690 (macro F1)
-- Ensemble model: ~0.9691 (macro F1)
+- XGBoost (with engineered features): about 0.9690 (macro F1)
+- Ensemble model: about 0.9689 (macro F1)
 
-The improvement is small but consistent.
+Both approaches performed very well, but the ensemble did not meaningfully outperform the single XGBoost model. This suggests that ensembling provided limited additional benefit on this dataset.
 
 ### Reflection
-The improvements from feature engineering and ensembling were modest, indicating that the dataset is already well-structured and strong boosting models perform well.
+Overall, the improvements from feature engineering and ensembling were modest rather than dramatic. This suggests that the dataset is already fairly well-structured and that strong boosting models can perform well even without extensive additional feature construction.
 
-However, this process helped refine my workflow:
-- exploring feature interactions
-- comparing multiple model types
-- combining models to improve robustness
-
-Overall, the assignment demonstrates how feature engineering and ensembling can be used to improve model performance and understanding.
+However, the process demonstrates how feature engineering and ensemble methods can still be used to refine model performance and strengthen a machine learning workflow.
