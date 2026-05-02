@@ -99,39 +99,32 @@ https://www.kaggle.com/code/trevorjhou/ml-homework
 How did the different models compare for your work?
 
 Answer: 
-Three boosting models were explored in this project: XGBoost, LightGBM, and CatBoost. Each model was trained using one-hot encoded features, and different hyperparameter settings were tested to evaluate their impact on performance.
+Two boosting algorithms were explored in this project: LightGBM and CatBoost, each with multiple hyperparameter settings. All models were trained on one-hot encoded features, and performance was evaluated using 5-fold cross-validated balanced accuracy, which was chosen to account for class imbalance.
+
+The following table summarizes the results:
+
+| Model    | Hyperparameters      | CV Balanced Accuracy | Leaderboard Score |
+| -------- | -------------------- | -------------------: | ----------------: |
+| LightGBM | Set 1 - Baseline     |               0.9695 |         [fill in] |
+| LightGBM | Set 2 - More Complex |               0.9683 |         [fill in] |
+| LightGBM | Set 3 - Simpler      |               0.9699 |         [fill in] |
+| CatBoost | Set 1 - Baseline     |               0.9660 |         [fill in] |
+| CatBoost | Set 2 - Deeper Trees |               0.9670 |         [fill in] |
 
 
-The performance of the models was evaluated using macro F1 score due to class imbalance in the target variable. The following table summarizes the results:
+For LightGBM, the simpler configuration produced the best result, with a CV balanced accuracy of 0.9699, slightly outperforming both the baseline (0.9695) and the more complex version (0.9683). This suggests that increasing model complexity did not improve performance and may have slightly reduced generalization.
 
-| Model | Hyperparameters | CV F1 Score | Leaderboard Score |
-|------|-----------------|------------|------------------|
-| XGBoost | max_depth=3 | 0.9671 | |
-| XGBoost | max_depth=6 | 0.9689 | 0.95939 |
-| XGBoost | max_depth=9 | 0.9685 | |
-| LightGBM | default | 0.9641 | |
-| LightGBM | num_leaves=63 | 0.9653 | |
-| CatBoost | default | 0.9689 | 0.95895 |
-| CatBoost | depth=6 | 0.9689 | |
+For CatBoost, the deeper-tree configuration performed slightly better than the baseline, improving CV balanced accuracy from 0.9660 to 0.9670. However, the gain was relatively small.
 
-XGBoost and CatBoost achieved the highest cross-validation F1 scores, while LightGBM performed slightly worse. Increasing model complexity, such as using deeper trees, provided only minor improvements.
+Overall, LightGBM performed better than CatBoost on this dataset. The improvements from hyperparameter tuning were modest rather than dramatic, suggesting that the dataset is already fairly structured and can be modeled effectively without extreme tuning.
 
-Overall, model improvements from hyperparameter tuning were small. While some configurations slightly improved performance, the differences were minimal, suggesting that the dataset is relatively easy to model and that baseline boosting models are already effective.
-
-
-3. How did the different models compare for your work?
-
-
+3.How did the different models compare for your work?
 Answer:
+The two boosting models performed similarly overall, but LightGBM achieved the best validation result. Its best configuration reached a CV balanced accuracy of 0.9699, while the best CatBoost configuration reached 0.9670.
 
-The different boosting models performed similarly overall. XGBoost achieved the best leaderboard score of 0.95939, while CatBoost produced a slightly lower score of 0.95895. LightGBM performed slightly worse than both models in cross-validation.
+This indicates that LightGBM captured the patterns in the dataset slightly better, although the overall difference between the models was still small. Both boosting approaches were effective, and model choice had some impact on performance, but not a very large one.
 
-Although XGBoost and CatBoost had nearly identical F1 scores during validation, the leaderboard results suggest that XGBoost generalizes slightly better. However, the overall performance differences between models were small.
-
-This indicates that all three boosting approaches are effective for this dataset, and that model choice has only a limited impact on performance.
-
-Overall, the differences between boosting models were small, indicating that all approaches were similarly effective for this dataset.
-
+Overall, the differences between the boosting models were limited, with LightGBM showing a small but consistent advantage.
 
 ## HW4: Feature Engineering, Selection, and Ensembling
 
