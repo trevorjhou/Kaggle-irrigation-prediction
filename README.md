@@ -1,5 +1,7 @@
 # Kaggle Homework - Trevor Jhou - trevorjhou
 
+## Competition: Predicting Irrigation Need 
+
 ## HW2 
 
 1. URLs for the resources you upvoted on the competition site.  Discuss why you chose each--how will it help you improve your approach?
@@ -40,7 +42,7 @@ A potential issue with the dataset is that it appears to be relatively simple or
 From Kaggle discussions, I learned that establishing a strong baseline model is important before applying more complex techniques. This guided the approach of starting with Random Forest and XGBoost, which already performed very well on this dataset.
 
 4. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small?
-   Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and     leaderboard scores.
+   Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and    leaderboard scores.
 
 Answer: 
 Two modeling approaches were explored in this project: Random Forest (bagging) and XGBoost (boosting).
@@ -85,6 +87,7 @@ In addition, I would consider using ensemble methods, such as combining predicti
 Finally, I would analyze feature importance and potentially remove less informative features to reduce noise and improve model efficiency.
 
 Overall, the goal would be to refine the model through better features and tuning, rather than relying solely on more complex algorithms.
+
 
 ## HW3 - Additional Boosting Models
 
