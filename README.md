@@ -26,7 +26,10 @@ Overall, these resources helped explain why both bagging and boosting methods ac
 
 2. Links to your EDA notebook and bagging and boosting notebook(s).
 
-Answer: https://www.kaggle.com/code/trevorjhou/ml-homework
+Answer: 
+LightGBM: https://www.kaggle.com/code/trevorjhou/homework-3-lightgbm
+CatBoost: https://www.kaggle.com/code/trevorjhou/homework-3-catboost-set-3
+
 
 3. What insights did you gain? Is there a feature you think is especially important? Any potential issues? Did you try anything new that you learned from Kaggle or other sources? Consider posting a public EDA notebook on Kaggle.
 
