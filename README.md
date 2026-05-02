@@ -95,7 +95,9 @@ Overall, my phase 2 plan would focus on refining features and tuning the stronge
 ## HW3 - Additional Boosting Models
 
 1. Links to your gradient boosting notebook(s).
+
 LightGBM: https://www.kaggle.com/code/trevorjhou/homework-3-lightgbm
+
 CatBoost: https://www.kaggle.com/code/trevorjhou/homework-3-catboost-set-3
 
 
