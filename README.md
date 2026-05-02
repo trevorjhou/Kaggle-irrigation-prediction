@@ -45,48 +45,49 @@ From Kaggle discussions, I learned that establishing a strong baseline model is 
    Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and    leaderboard scores.
 
 Answer: 
-Two modeling approaches were explored in this project: Random Forest (bagging) and XGBoost (boosting).
+Two modeling approaches were explored in this project: Random Forest as the bagging model and XGBoost as the boosting model.
 
-Both models were trained on the dataset after preprocessing, including one-hot encoding of categorical variables. Default model settings were used, with minimal tuning applied.
+For both models, I preprocessed the data by removing the id column, encoding the target variable into numeric labels, and applying one-hot encoding to categorical features. During model development, I found that a target-derived column (target_encoded) had mistakenly remained in the dataset, which caused target leakage and unrealistically high validation scores. After removing that column, the evaluation results became more reliable.
 
-The performance of the models was evaluated using macro F1 score due to class imbalance in the target variable.
+To compare the two approaches fairly, I used 5-fold stratified cross-validation with balanced accuracy as the evaluation metric. Balanced accuracy was chosen because the target classes were somewhat imbalanced.
 
-| Model        | Approach | CV F1 Score | Leaderboard Score |
-|--------------|----------|-------------|-------------------|
-| RandomForest | Bagging  | 0.966       | 0.95939           |
-| XGBoost      | Boosting | 0.969       | 0.95939           |
+| Model         | Approach | CV Balanced Accuracy | Leaderboard Score |
+| ------------- | -------- | -------------------: | ----------------: |
+| Random Forest | Bagging  |               0.9553 |           0.95939 |
+| XGBoost       | Boosting |               0.9617 |           0.95939 |
 
-XGBoost achieved a slightly higher F1 score during cross-validation, but both models obtained the same leaderboard score. This suggests that both bagging and boosting methods are effective for this dataset.
 
-Overall, model improvements were small, indicating that the dataset is relatively easy to model and that additional complexity does not significantly improve performance.
+Both models performed strongly, but XGBoost slightly outperformed Random Forest in cross-validation. The improvement was meaningful but still relatively small (about 0.0064 in balanced accuracy), suggesting that boosting captured the data patterns somewhat better. However, both models achieved the same leaderboard score, which indicates that the practical difference in Kaggle performance was limited.
+
+Overall, both approaches worked well. Random Forest provided a strong and stable baseline, while XGBoost produced the best validation result. The improvement from boosting was noticeable, but not dramatic.
 
 
 5. How did boosting versus bagging compare for your work? 
 
 Answer:
 
-In this project, both bagging (Random Forest) and boosting (XGBoost) performed very similarly. 
+In this project, boosting performed slightly better than bagging.
 
-XGBoost achieved a slightly higher F1 score during cross-validation, but on the Kaggle leaderboard both models obtained the same score of 0.95939. 
-This suggests that the performance difference between the two approaches was minimal.
+Random Forest, representing bagging, achieved a cross-validated balanced accuracy of 0.9553, while XGBoost, representing boosting, achieved 0.9617. This shows that XGBoost provided a modest but consistent improvement over Random Forest during validation.
 
-While boosting is generally expected to outperform bagging by sequentially correcting errors, in this case the dataset appears to be relatively well-structured, 
-allowing Random Forest to already capture most of the important patterns.
+However, both models received the same Kaggle leaderboard score of 0.95939. This suggests that although boosting had the advantage in cross-validation, the difference did not translate into a noticeable leaderboard gain at this stage.
+
+Overall, bagging and boosting were both effective, but boosting had a small edge in model performance.
 
 6. What is your "phase 2" plan to improve your model performance? Note that although the leaderboard is fun to watch, you are not graded on it (and a shake up often occurs at the end!)
 
 Answer:
-To further improve model performance, I would focus on feature engineering and more advanced model tuning.
+To improve model performance in phase 2, I would focus on feature engineering, hyperparameter tuning, and testing additional boosting models.
 
-First, I would explore creating new features based on domain knowledge, such as combining soil properties with environmental factors (e.g., rainfall and temperature). These interaction features may help the model better capture relationships in the data.
+First, I would explore interaction features among environmental and soil variables, such as combinations of temperature, rainfall, wind speed, and soil moisture. These may help the model capture more complex irrigation patterns.
 
-Second, I would perform more systematic hyperparameter tuning for the boosting models, such as adjusting learning rate, tree depth, and number of estimators. Although tuning showed only small improvements in this assignment, a more thorough search could still yield gains.
+Second, I would perform more systematic hyperparameter tuning, especially for XGBoost. Since XGBoost already performed slightly better, tuning parameters such as learning rate, tree depth, subsampling, and number of estimators may lead to additional gains.
 
-In addition, I would consider using ensemble methods, such as combining predictions from multiple models (e.g., XGBoost and CatBoost), to improve generalization performance.
+Third, I would compare other strong boosting methods such as CatBoost or LightGBM under the same cross-validation framework.
 
-Finally, I would analyze feature importance and potentially remove less informative features to reduce noise and improve model efficiency.
+Finally, I would review feature importance and remove redundant or weak variables to reduce noise and improve efficiency.
 
-Overall, the goal would be to refine the model through better features and tuning, rather than relying solely on more complex algorithms.
+Overall, my phase 2 plan would focus on refining features and tuning the strongest model rather than simply increasing model complexity.
 
 
 ## HW3 - Additional Boosting Models
