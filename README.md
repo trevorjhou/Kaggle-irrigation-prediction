@@ -27,8 +27,7 @@ Overall, these resources helped explain why both bagging and boosting methods ac
 2. Links to your EDA notebook and bagging and boosting notebook(s).
 
 Answer: 
-LightGBM: https://www.kaggle.com/code/trevorjhou/homework-3-lightgbm
-CatBoost: https://www.kaggle.com/code/trevorjhou/homework-3-catboost-set-3
+https://www.kaggle.com/code/trevorjhou/ml-homework
 
 
 3. What insights did you gain? Is there a feature you think is especially important? Any potential issues? Did you try anything new that you learned from Kaggle or other sources? Consider posting a public EDA notebook on Kaggle.
@@ -96,9 +95,11 @@ Overall, my phase 2 plan would focus on refining features and tuning the stronge
 ## HW3 - Additional Boosting Models
 
 1. Links to your gradient boosting notebook(s).
-https://www.kaggle.com/code/trevorjhou/ml-homework
+LightGBM: https://www.kaggle.com/code/trevorjhou/homework-3-lightgbm
+CatBoost: https://www.kaggle.com/code/trevorjhou/homework-3-catboost-set-3
 
-2. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small? Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and leaderboard scores.
+
+3. Discuss your modeling approaches. What did you try? What worked well? What didn't work well? Were model improvements meaningful or small? Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and leaderboard scores.
 How did the different models compare for your work?
 
 Answer: 
