@@ -135,7 +135,7 @@ Overall, the differences between the boosting models were limited, with LightGBM
 ## HW4: Feature Engineering, Selection, and Ensembling
 
 ### Notebook
-- Kaggle Notebook: https://www.kaggle.com/code/trevorjhou/ml-homework
+- https://www.kaggle.com/code/trevorjhou/ml-homework-4-feature-engineering-and-stacking
 
 ### Models Used
 I experimented with several boosting models that differ in meaningful ways:
