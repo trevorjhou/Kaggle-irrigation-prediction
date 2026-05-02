@@ -28,7 +28,9 @@ Overall, these resources helped explain why both bagging and boosting methods ac
 2. Links to your EDA notebook and bagging and boosting notebook(s).
 
 Answer: 
+
 EDA:https://www.kaggle.com/code/trevorjhou/ml-homework2
+
 Bagging and XGboost:　https://www.kaggle.com/code/trevorjhou/hw2-bagging-and-boosting
 
 
