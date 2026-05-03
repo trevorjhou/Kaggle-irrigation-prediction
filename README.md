@@ -157,7 +157,7 @@ I created several interaction features, including:
 - rain_x_humidity
 - sun_per_temp
 - water_per_area
-- 
+  
 These features were designed to capture relationships between environmental factors that may influence irrigation needs.
 
 Using XGBoost, the model with engineered features achieved a macro F1 score of about 0.9690, which suggests that the added interaction terms provided a small improvement in predictive performance.
