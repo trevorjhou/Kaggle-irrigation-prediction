@@ -59,28 +59,27 @@ For both models, I preprocessed the data by removing the id column, encoding the
 
 To compare the two approaches fairly, I used 5-fold stratified cross-validation with balanced accuracy as the evaluation metric. Balanced accuracy was chosen because the target classes were somewhat imbalanced.
 
-| Model         | Approach | CV Balanced Accuracy | Leaderboard Score |
-| ------------- | -------- | -------------------: | ----------------: |
-| Random Forest | Bagging  |               0.9553 |           0.95939 |
-| XGBoost       | Boosting |               0.9617 |           0.95939 |
+| Model         | Approach | CV Balanced Accuracy | Public Leaderboard Score | Private Leaderboard Score |
+| ------------- | -------- | -------------------: | -----------------------: | ------------------------: |
+| Random Forest | Bagging  |               0.9553 |                  0.95274 |                   0.95640 |
+| XGBoost       | Boosting |               0.9617 |                  0.95987 |                   0.96122 |
 
+Both models performed strongly, but XGBoost slightly outperformed Random Forest in cross-validation. The improvement was meaningful but still relatively small (about 0.0064 in balanced accuracy), suggesting that boosting captured the data patterns somewhat better than bagging.
 
-Both models performed strongly, but XGBoost slightly outperformed Random Forest in cross-validation. The improvement was meaningful but still relatively small (about 0.0064 in balanced accuracy), suggesting that boosting captured the data patterns somewhat better. However, both models achieved the same leaderboard score, which indicates that the practical difference in Kaggle performance was limited.
-
-Overall, both approaches worked well. Random Forest provided a strong and stable baseline, while XGBoost produced the best validation result. The improvement from boosting was noticeable, but not dramatic.
+The Kaggle leaderboard results showed the same overall pattern. XGBoost achieved higher public and private leaderboard scores than Random Forest, which suggests that its advantage was not limited to validation only. Overall, both approaches worked well. Random Forest provided a strong and stable baseline, while XGBoost produced the best overall performance.
 
 
 5. How did boosting versus bagging compare for your work? 
 
 Answer:
 
-In this project, boosting performed slightly better than bagging.
+In this project, boosting performed better than bagging.
 
 Random Forest, representing bagging, achieved a cross-validated balanced accuracy of 0.9553, while XGBoost, representing boosting, achieved 0.9617. This shows that XGBoost provided a modest but consistent improvement over Random Forest during validation.
 
-However, both models received the same Kaggle leaderboard score of 0.95939. This suggests that although boosting had the advantage in cross-validation, the difference did not translate into a noticeable leaderboard gain at this stage.
+The leaderboard results also supported this comparison. XGBoost achieved a public score of 0.95987 and a private score of 0.96122, while Random Forest achieved a public score of 0.95274 and a private score of 0.95640. This indicates that boosting generalized better than bagging on this dataset.
 
-Overall, bagging and boosting were both effective, but boosting had a small edge in model performance.
+Overall, both bagging and boosting were effective, but boosting had a clear edge in performance.
 
 6. What is your "phase 2" plan to improve your model performance? Note that although the leaderboard is fun to watch, you are not graded on it (and a shake up often occurs at the end!)
 
