@@ -169,7 +169,7 @@ To evaluate which features were most useful, I examined the feature importance r
 Based on this analysis, I did not remove features aggressively, because the full engineered feature set still produced strong validation performance. Instead, I used feature importance mainly as a way to understand which variables mattered most and to assess whether the engineered features were adding meaningful information.
 
 ### Feature Importance
-The feature importance results show that the most influential predictors were still the original variables, especially crop growth stage, soil moisture, temperature, wind speed, and rainfall. The engineered interaction features did not appear among the top-ranked variables, which suggests that their contribution was relatively limited compared to the strongest original features. However, the slight improvement in model performance suggests that they may still have provided some additional useful information overall.
+The feature importance results show that the most influential predictors were still the original variables rather than the engineered interaction terms.
 
 | Rank | Feature                      | Importance |
 | ---- | ---------------------------- | ---------: |
