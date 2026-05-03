@@ -45,7 +45,7 @@ One important observation is that the target variable `Irrigation_Need` is imbal
 
 Several features, such as soil properties, rainfall, and temperature, are likely to be important predictors, as they are directly related to irrigation needs. Although a detailed feature importance analysis was not performed, these variables are intuitively relevant and are effectively handled by tree-based models.
 
-A potential issue with the dataset is that it appears to be relatively simple or well-structured, which may limit the performance differences between models. This was observed in later modeling steps, where different models produced very similar results.
+Overall, these resources helped explain why tree-based methods performed strongly in this project and why boosting ultimately showed a small but consistent advantage over bagging.
 
 From Kaggle discussions, I learned that establishing a strong baseline model is important before applying more complex techniques. This guided the approach of starting with Random Forest and XGBoost, which already performed very well on this dataset.
 
