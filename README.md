@@ -33,7 +33,7 @@ Answer:
 
 - Bagging:https://www.kaggle.com/code/trevorjhou/hw2-bagging
 
-- Bagging and XGboost:https://www.kaggle.com/code/trevorjhou/hw2-bagging-and-boosting
+- XGboost:https://www.kaggle.com/code/trevorjhou/hw2-boosting
 
 
 3. What insights did you gain? Is there a feature you think is especially important? Any potential issues? Did you try anything new that you learned from Kaggle or other sources? Consider posting a public EDA notebook on Kaggle.
