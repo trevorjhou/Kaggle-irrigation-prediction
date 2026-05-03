@@ -162,6 +162,12 @@ These features were designed to capture relationships between environmental fact
 
 Using XGBoost, the model with engineered features achieved a macro F1 score of about 0.9690, which suggests that the added interaction terms provided a small improvement in predictive performance.
 
+### Feature Selection
+
+To evaluate which features were most useful, I examined the feature importance rankings from the XGBoost model after feature engineering. The results showed that the strongest predictors were still the original variables, especially crop growth stage, soil moisture, temperature, wind speed, and rainfall. The engineered interaction features did not appear among the top-ranked variables, suggesting that their contribution was more limited.
+
+Based on this analysis, I did not remove features aggressively, because the full engineered feature set still produced strong validation performance. Instead, I used feature importance mainly as a way to understand which variables mattered most and to assess whether the engineered features were adding meaningful information.
+
 ### Feature Importance
 The feature importance results show that the most influential predictors were still the original variables, especially crop growth stage, soil moisture, temperature, wind speed, and rainfall. The engineered interaction features did not appear among the top-ranked variables, which suggests that their contribution was relatively limited compared to the strongest original features. However, the slight improvement in model performance suggests that they may still have provided some additional useful information overall.
 
