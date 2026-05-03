@@ -41,7 +41,7 @@ Answer:
 Answer: 
 From the EDA, the dataset appears to be relatively clean and well-structured. There are no missing values, and the features include a mix of numerical and categorical variables.
 
-One important observation is that the target variable `Irrigation_Need` is imbalanced, with the "Low" class appearing much more frequently than the "High" class. This influenced the decision to use macro F1 score as the evaluation metric instead of accuracy.
+One important observation is that the target variable `Irrigation_Need` is imbalanced, with the "Low" class appearing much more frequently than the "High" class. This influenced the decision to use balanced accuracy as the evaluation metric instead of plain accuracy.
 
 Several features, such as soil properties, rainfall, and temperature, are likely to be important predictors, as they are directly related to irrigation needs. Although a detailed feature importance analysis was not performed, these variables are intuitively relevant and are effectively handled by tree-based models.
 
