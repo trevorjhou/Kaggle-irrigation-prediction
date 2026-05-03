@@ -29,9 +29,11 @@ Overall, these resources helped explain why both bagging and boosting methods ac
 
 Answer: 
 
-EDA:https://www.kaggle.com/code/trevorjhou/ml-homework2
+- EDA:https://www.kaggle.com/code/trevorjhou/ml-homework2
 
-Bagging and XGboost:https://www.kaggle.com/code/trevorjhou/hw2-bagging-and-boosting
+- Bagging:https://www.kaggle.com/code/trevorjhou/hw2-bagging
+
+- Bagging and XGboost:https://www.kaggle.com/code/trevorjhou/hw2-bagging-and-boosting
 
 
 3. What insights did you gain? Is there a feature you think is especially important? Any potential issues? Did you try anything new that you learned from Kaggle or other sources? Consider posting a public EDA notebook on Kaggle.
