@@ -31,7 +31,7 @@ Answer:
 
 - EDA:https://www.kaggle.com/code/trevorjhou/ml-homework2
 
-- Bagging:https://www.kaggle.com/code/trevorjhou/hw2-bagging
+- Random Forest:https://www.kaggle.com/code/trevorjhou/hw2-bagging
 
 - XGboost:https://www.kaggle.com/code/trevorjhou/hw2-boosting
 
