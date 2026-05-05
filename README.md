@@ -129,13 +129,11 @@ Overall, LightGBM performed better than CatBoost on this dataset. The improvemen
 
 Answer:
 
-The two boosting models performed similarly overall, but LightGBM achieved the best validation result. Its best configuration reached a CV balanced accuracy of 0.9699, while the best CatBoost configuration reached 0.9691.
+The two boosting models performed similarly overall, but LightGBM achieved slightly better performance. This may be due to its leaf-wise tree growth strategy, which can capture complex patterns more efficiently compared to CatBoost’s symmetric tree structure.
 
-This indicates that LightGBM captured the patterns in the dataset slightly better, although the overall difference between the models was still small. Both boosting approaches were effective, and model choice had some impact on performance, but not a very large one.
+However, increasing model complexity (e.g., deeper trees or more leaves) did not significantly improve performance for either model. This suggests that the dataset is relatively structured and does not require highly complex models, and that additional complexity may introduce overfitting without improving generalization.
 
-The Kaggle leaderboard results showed the same pattern. LightGBM achieved a public score of 0.96791 and a private score of 0.97022, while CatBoost achieved a public score of 0.96579 and a private score of 0.96861. This suggests that LightGBM had a small but consistent advantage in both validation and competition performance.
-
-Overall, the differences between the boosting models were limited, with LightGBM showing a small but consistent advantage.
+The improvements from hyperparameter tuning were modest, indicating that the baseline models were already strong. Overall, while model choice had some impact, the differences were small, and further improvements may require feature engineering or model diversity rather than additional tuning.
 
 ## HW4: Feature Engineering, Selection, and Ensembling
 
