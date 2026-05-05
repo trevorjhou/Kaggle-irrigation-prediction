@@ -53,27 +53,16 @@ From Kaggle discussions, I learned that establishing a strong baseline model is 
    Make sure to use performance metrics in your discussion. Also provide leaderboard scores for the models. A table might be useful for organizing the metrics and    leaderboard scores.
 
 Answer: 
-In this project, I evaluated two gradient boosting models—LightGBM and CatBoost—under multiple hyperparameter settings. All models were trained on one-hot encoded features and evaluated using 5-fold cross-validated balanced accuracy to account for class imbalance.
+For both models, I preprocessed the data by removing the id column, encoding the target variable into numeric labels, and applying one-hot encoding to categorical features. During model development, I found that a target-derived column (target_encoded) had mistakenly remained in the dataset, which caused target leakage and unrealistically high validation scores. After removing that column, the evaluation results became more reliable. 
+
+To compare the two approaches fairly, I used 5-fold stratified cross-validation with balanced accuracy as the evaluation metric. Balanced accuracy was chosen because the target classes were somewhat imbalanced.
 
 | Model         | Approach | CV Balanced Accuracy | Public Leaderboard Score | Private Leaderboard Score |
 | ------------- | -------- | -------------------: | -----------------------: | ------------------------: |
 | Random Forest | Bagging  |               0.9553 |                  0.95274 |                   0.95640 |
 | XGBoost       | Boosting |               0.9617 |                  0.95987 |                   0.96122 |
 
-What worked / didn’t:
-For LightGBM, the simpler configuration performed best (CV 0.9699), slightly outperforming both the baseline (0.9695) and the more complex setting (0.9683). This indicates that increasing complexity (deeper trees / more leaves) did not yield gains and likely introduced mild overfitting, as additional capacity did not capture new signal in this dataset.
-
-For CatBoost, the faster learning configuration performed best (CV 0.9691), but the gains over baseline (0.9669) and deeper trees (0.9670) were small. A higher learning rate can accelerate convergence, but does not guarantee better generalization, while deeper trees increase capacity but can lead to diminishing returns or overfitting.
-
-Were improvements meaningful?
-Across both models, tuning improvements were modest (on the order of ~0.001–0.003 in CV). The close alignment between CV and leaderboard scores suggests stable generalization, and that the baseline models were already strong. Further gains are unlikely to come from simply increasing model complexity.
-
-Model comparison:
-LightGBM slightly outperformed CatBoost on both CV and leaderboard metrics. A plausible reason is LightGBM’s leaf-wise growth, which can capture useful splits efficiently; however, it also increases overfitting risk—consistent with the observation that simpler settings worked best. CatBoost’s symmetric trees are more constrained and stable, which may explain its slightly lower but consistent performance.
-
-Takeaway:
-Overall, both boosting models were effective and performed similarly. The small performance gap suggests that model choice had limited impact on this dataset. Future improvements are more likely to come from feature engineering or adding model diversity (e.g., non-tree models) rather than further increasing boosting complexity.
-
+Both models performed strongly, but XGBoost slightly outperformed Random Forest in cross-validation. The improvement was meaningful but still relatively small (about 0.0064 in balanced accuracy), suggesting that boosting captured the data patterns somewhat better than bagging. The Kaggle leaderboard results showed the same overall pattern. XGBoost achieved higher public and private leaderboard scores than Random Forest, which suggests that its advantage was not limited to validation only. Overall, both approaches worked well. Random Forest provided a strong and stable baseline, while XGBoost produced the best overall performance.
 
 5. How did boosting versus bagging compare for your work? 
 
